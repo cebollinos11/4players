@@ -4,17 +4,21 @@ using UnityEngine.UI;
 
 public class Player {
 
-    public bool Active = false;
+    public bool Active = true;
     public int AccumulatedScore = 0;
     public int CurrentSceneScore = 0;
     public string name = "";
     public Color Color;
     public int id;
+    
+
     public Player(int setId) {
         id = setId;
         name = "Player " + id.ToString();
         Debug.Log("created "+name);        
     }
+
+    
 
     public void AddPoints(int d) {
         Debug.Log("Added " + d.ToString() + " points to " + name);
@@ -29,7 +33,7 @@ public class Player {
 
 public class GameManager : MonoBehaviour {
 
-   
+    public GameObject PlayerPrefab;
     public Player[] Players = new Player[4];    
     public Color[] PlayerColors = new Color[4];
     private GameObject PlayerTogglers;
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        
+        Debug.Log("Initializing players array");
 
         //Init Players array
         for (int i = 0; i < Players.Length; i++)

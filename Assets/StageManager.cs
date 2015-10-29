@@ -9,8 +9,7 @@ public class Stage {
 }
 
 public class StageManager : MonoBehaviour {
-    public GameObject PlayerPrefab;
-    public Transform[] SpawnList;
+    
     public GameObject EndOfGamePanel;
     private GameObject GMO;
     private GameManager GM;
@@ -26,7 +25,7 @@ public class StageManager : MonoBehaviour {
         //load current stage
         CurrentStage = new Stage();
         
-        SpawnCharacters();
+        
         Debug.Log("calling pause game");
         GetComponent<PauseMenuManager>().PauseGame();
 
@@ -85,24 +84,5 @@ public class StageManager : MonoBehaviour {
     
     }
 
-    public void SpawnCharacters(){
-
-        var i = 0;
-        foreach (Transform SpawnPoint in SpawnList)
-        {
-
-            if (GM.Players[i].Active) {
-                //instantiate player
-                GameObject p = (GameObject)Instantiate(PlayerPrefab, SpawnPoint.position, SpawnPoint.rotation);
-                // set color
-                p.GetComponent<Renderer>().material.color = GM.Players[i].Color;
-                p.name = GM.Players[i].name;
-            }
-            
-            i++;
-
-            
-        }
-        
-    }
+    
 }
