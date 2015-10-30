@@ -2,18 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Stage {
 
-    public bool CanBePaused = true;
-
-}
 
 public class StageManager : MonoBehaviour {
     
     public GameObject EndOfGamePanel;
     private GameObject GMO;
     private GameManager GM;
-    public Stage CurrentStage;
+    
     
 
 	// Use this for initialization
@@ -22,8 +18,7 @@ public class StageManager : MonoBehaviour {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         
 
-        //load current stage
-        CurrentStage = new Stage();
+      
         
         
         Debug.Log("calling pause game");

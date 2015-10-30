@@ -69,10 +69,10 @@ public class PauseMenuManager : MonoBehaviour {
 
         else
         {
-            if(GetComponent<StageManager>().CurrentStage.CanBePaused){
-                PauseGame();
-                ShowPauseMenu();
-            }            
+            //if(GetComponent<StageManager>().CurrentStage.CanBePaused){
+            //    PauseGame();
+            //   ShowPauseMenu();
+            //}            
         }
     }
 }

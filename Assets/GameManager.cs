@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Player {
 
@@ -10,6 +11,7 @@ public class Player {
     public string name = "";
     public Color Color;
     public int id;
+    
     
 
     public Player(int setId) {
@@ -31,14 +33,18 @@ public class Player {
     }
 }
 
-public class GameManager : MonoBehaviour {
+public class GameManager : Singleton<GameManager> {
 
     public GameObject PlayerPrefab;
     public Player[] Players = new Player[4];    
     public Color[] PlayerColors = new Color[4];
     private GameObject PlayerTogglers;
+    public stageController stageController;
     
     UnityEngine.UI.Text TestString;
+
+    public List<StageClass> _StagesDB;
+    public StageClass currentStage;
 
 	// Use this for initialization
 	void Start () {
@@ -89,5 +95,18 @@ public class GameManager : MonoBehaviour {
     public void StartNewTournament(){
         DontDestroyOnLoad(gameObject);
         Application.LoadLevel(1);
+    }
+
+    public void LoadNewStage() {
+
+        int stageIndex = GUIManager.Instance.StageSelector.value;
+
+        currentStage = _StagesDB[stageIndex];
+        string lvlname = _StagesDB[stageIndex].levelname;
+        DontDestroyOnLoad(gameObject);
+        Debug.Log("trying to load " + lvlname);
+        Application.LoadLevel(lvlname);
+        GUIManager.Instance.MainMenu.SetActive(false);
+        //GUIManager.Instance.InstructionsPanel.SetActive(true);
     }
 }

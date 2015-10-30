@@ -3,19 +3,10 @@ using System.Collections;
 
 public class StageManager2 : MonoBehaviour {
 
-
-    public string name;
-    public string description;
-    public Transform[] SpawnList;
-
-    private GameManager GM;
-    
+    public Transform[] SpawnList;    
 
 	// Use this for initialization
-	void Start () {
-
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        //Invoke("BuildStage", 0.01f);
+	void Start () {       
         
 	}
 	
@@ -39,13 +30,13 @@ public class StageManager2 : MonoBehaviour {
         foreach (Transform SpawnPoint in SpawnList)
         {
             Debug.Log("Spawning char");
-            if (GM.Players[i].Active)
+            if (GameManager.Instance.Players[i].Active)
             {
                 //instantiate player
-                GameObject p = (GameObject)Instantiate(GM.PlayerPrefab, SpawnPoint.position, SpawnPoint.rotation);
+                GameObject p = (GameObject)Instantiate(GameManager.Instance.PlayerPrefab, SpawnPoint.position, SpawnPoint.rotation);
                 // set color
-                p.GetComponent<Renderer>().material.color = GM.Players[i].Color;
-                p.name = GM.Players[i].name;
+                p.GetComponent<Renderer>().material.color = GameManager.Instance.Players[i].Color;
+                p.name = GameManager.Instance.Players[i].name;
             }
             else { Debug.Log("not active"); }
 

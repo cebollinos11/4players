@@ -45,6 +45,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Classes\GUIManager.cs" />
+     <Compile Include="Assets\Classes\Singleton.cs" />
+     <Compile Include="Assets\Classes\StageClass.cs" />
      <Compile Include="Assets\Coin.cs" />
      <Compile Include="Assets\CoinGenerator.cs" />
      <Compile Include="Assets\GameManager.cs" />
@@ -54,16 +57,22 @@
      <Compile Include="Assets\PauseMenu.cs" />
      <Compile Include="Assets\PauseMenuManager.cs" />
      <Compile Include="Assets\PlayerController.cs" />
-     <Compile Include="Assets\SceneConstructor.cs" />
      <Compile Include="Assets\StageManager.cs" />
      <Compile Include="Assets\StageManager2.cs" />
+     <Compile Include="Assets\StagesDB.cs" />
      <Compile Include="Assets\playerController 1.cs" />
      <Compile Include="Assets\stageController.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
